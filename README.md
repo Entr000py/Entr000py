@@ -1,20 +1,15 @@
 # Entr000py
 
-做 Agent 应用：把用户的一句话变成可执行的推荐、检索和任务状态。
-
-下面四篇笔记各讲一个机制，场景来自实习里的真实问题。
+这里放代码、论文和应用开发笔记。我比较关心模型接进产品之后的问题：用户的要求怎么落到数据字段上，查到的材料怎么核对，改了几轮的文书有没有把要求漏掉。
 
 ## 笔记
 
-1. [关键词匹配失败之后，课程推荐怎么收成 Function Calling 条件](notes/01-function-calling-course-recommend.md)
-2. [法律咨询检索为什么要向量加关键词回退](notes/02-hybrid-legal-search.md)
-3. [多轮文书修订里，修改要求为什么不能只靠滑动窗口](notes/03-revision-state-not-sliding-window.md)
-4. [健身助手的偏好数据从哪来：对话、工具结果、人工打回](notes/04-preference-pairs-from-traces.md)
+四篇笔记围绕健身推荐和法律文书展开。文中的业务案例是为说明问题构造的示例，不作为真实客户记录或实习成果；方案讨论与公开代码的实现范围分别说明。
 
-## 代码
-
-- [Legal_Rule_Search](https://github.com/Entr000py/Legal_Rule_Search)：法条语义检索 + 关键词回退，FastAPI / Milvus / Docker。第 2 篇笔记里的 RRF 评测没有放进这个仓库。
-- [LLM-From-Scratch](https://github.com/Entr000py/LLM-From-Scratch)：从零把 GPT-like 模型的数据、训练和采样跑通。学习项目。
+1. [用户说“别太跳”，课程库里却没有这个标签](notes/01-function-calling-course-recommend.md)：模型理解了用户，不代表数据库筛得出来。
+2. [查法条时，先分清“找这一条”和“找相关规定”](notes/02-hybrid-legal-search.md)：编号定位、混合召回和服务故障需要不同处理。
+3. [文书改了五轮，第一轮的要求还算数吗](notes/03-revision-state-not-sliding-window.md)：要求会被补充、撤回和替代，记住之后还得核对最终稿。
+4. [健身助手答错了，这条日志能拿去做 DPO 吗](notes/04-preference-pairs-from-traces.md)：先找到出错的决策点，再决定样本怎么配。
 
 ## 论文
 
